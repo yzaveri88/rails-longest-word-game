@@ -1,0 +1,15 @@
+<h1>New Game</h1>
+<% @letters.each do |letter| %>
+<%= letter.to_s %>
+<% end %>
+<br><br>
+
+<form action="/score" method='post'>
+  <%= hidden_field_tag(:authenticity_token, form_authenticity_token) %>
+  <%= hidden_field_tag(:grid, @letters) %>
+  <br>
+  <p>What is the longest word you can find?</p>
+  <br>
+  <input type="text" placeholder="Your letters..." name='guess'>
+  <input type="submit">
+</form>
